@@ -142,6 +142,15 @@ public sealed class MainForm : Form
         _resetButton.Click += (_, _) => ResetBoard();
         controls.Controls.Add(_resetButton);
 
+        var runnerButton = CreateActionButton("Play Dino Runner", Color.FromArgb(70, 95, 135));
+        runnerButton.Width = 170;
+        runnerButton.Click += (_, _) =>
+        {
+            using var runner = new DinoRunnerForm();
+            runner.ShowDialog(this);
+        };
+        controls.Controls.Add(runnerButton);
+
         var footer = new TableLayoutPanel
         {
             Dock = DockStyle.Fill,
